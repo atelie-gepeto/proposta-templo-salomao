@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Consultoria de IA · Templo de Salomão</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--graf:#101215;--surf:#181B1E;--creme:#FAFAED;--claro:#FFFFF2;--lilas:#E9E3F4;--mut:#5b5f63;--mutd:#a9acaf}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:#000;overflow:hidden}
+body{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-weight:400;color:var(--graf)}
+#stage{position:absolute;left:0;top:0;width:1920px;height:1080px;transform-origin:0 0}
+.slide{position:absolute;inset:0;display:none;padding:110px 120px 100px;background:var(--creme);overflow:hidden}
+.slide.on{display:block}
+.slide.dark{background:var(--graf);color:var(--creme)}
+h1,h2{font-weight:500;text-transform:uppercase;letter-spacing:.01em;line-height:1.12}
+h2{font-size:64px;max-width:1500px}
+.dark h2,.dark h1{color:var(--creme)}
+.kick{position:absolute;top:44px;left:120px;font-size:20px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut)}
+.dark .kick{color:var(--mutd)}
+.num{position:absolute;bottom:40px;right:120px;font-size:20px;color:var(--mut)}
+.dark .num{color:var(--mutd)}
+.brand{position:absolute;bottom:34px;left:120px;height:26px}
+.p{font-size:34px;line-height:1.5;font-weight:300}
+.chip{background:var(--graf);color:var(--lilas);padding:0 .3em;font-weight:500;display:inline-block;transform:skewX(-4deg)}
+.dark .chip{background:var(--lilas);color:var(--graf)}
+.w5{font-weight:500}
+/* pendência (não faz parte do texto do slide) */
+.pend{display:inline-block;font-size:19px;letter-spacing:.06em;text-transform:uppercase;font-weight:500;background:#fff;color:var(--graf);border:2px dashed var(--graf);padding:6px 14px;border-radius:4px}
+.dark .pend{background:var(--lilas)}
+body.limpo .pend{display:none}
+.slot{position:absolute;top:44px;right:120px}
+.valor{display:inline-block;border:2px dashed var(--graf);background:#fff;padding:2px 14px;font-weight:500}
+/* slide 1 */
+#s1{display:none}
+#s1.on{display:flex;flex-direction:column;justify-content:center}
+#s1 h1{font-size:92px;max-width:1350px;margin:0 0 56px}
+#s1 .p{max-width:1100px;color:var(--lilas)}
+#s1 .ic{position:absolute;right:130px;top:50%;margin-top:-210px;width:420px;opacity:.95}
+/* slide 2 */
+.rows{margin-top:48px;display:grid;gap:14px}
+.row{display:grid;grid-template-columns:560px 90px 1fr;align-items:center;background:var(--claro);border:2px solid var(--graf);min-height:118px}
+.row .a{padding:0 30px;font-size:32px;font-weight:500;text-transform:uppercase;background:var(--lilas);height:100%;display:flex;align-items:center;border-right:2px solid var(--graf)}
+.row .ar{text-align:center;font-size:44px}
+.row .b{padding:0 30px 0 0;font-size:29px;line-height:1.35;font-weight:300}
+/* slide 3 */
+.verbs{display:flex;gap:0;margin-top:70px;align-items:stretch}
+.verb{flex:1;padding:36px 30px;border:2px solid var(--creme);margin-left:-2px;font-size:44px;font-weight:500;text-transform:uppercase}
+.verb small{display:block;font-size:22px;font-weight:300;opacity:.7;margin-bottom:18px;letter-spacing:.1em}
+#s3 .p{margin-top:70px;max-width:1450px;font-size:38px}
+/* timeline */
+.tl{position:relative;margin-top:90px;display:grid;grid-template-columns:repeat(4,1fr);gap:28px}
+.tl:before{content:"";position:absolute;left:0;right:0;top:34px;height:4px;background:var(--graf)}
+.st{position:relative;padding-top:0}
+.dot{position:relative;z-index:1;width:70px;height:70px;border-radius:50%;background:var(--graf);color:var(--lilas);display:flex;align-items:center;justify-content:center;font-size:32px;font-weight:500;margin-bottom:26px}
+.st.cl .dot{background:var(--lilas);color:var(--graf);border:4px solid var(--graf)}
+.card{background:var(--claro);border:2px solid var(--graf);padding:28px 26px 30px;min-height:430px}
+.card .wk{font-size:20px;letter-spacing:.12em;text-transform:uppercase;color:var(--mut)}
+.card .vb{font-size:42px;font-weight:500;text-transform:uppercase;margin:8px 0 20px;line-height:1.1}
+.card .what{font-size:26px;line-height:1.4;font-weight:300}
+.card .rec{margin-top:22px;padding-top:18px;border-top:2px dashed var(--graf);font-size:26px;line-height:1.35;font-weight:500}
+.card .rec:before{content:"→ ";}
+.foot{position:absolute;left:120px;right:120px;bottom:100px;font-size:28px;font-weight:400;display:flex;gap:26px;align-items:center}
+.foot span.b{border:2px solid var(--graf);padding:8px 20px;background:var(--lilas)}
+.clone{margin-top:14px;background:var(--graf);color:var(--creme);padding:16px 20px;font-size:24px;line-height:1.3}
+.clone b{color:var(--lilas);font-weight:500}
+.band{position:absolute;left:120px;right:120px;bottom:100px;background:var(--lilas);border:2px solid var(--graf);padding:20px 30px;font-size:28px;font-weight:500}
+.tl.t5 .card{height:410px;min-height:0}.tl.t5{margin-top:40px}
+/* s6 */
+.res{margin-top:40px;font-size:38px;line-height:1.4;max-width:1500px;font-weight:300}
+.kpis{margin-top:60px;display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.kpi{border:2px solid var(--graf);background:var(--claro);padding:40px 34px;min-height:420px;font-size:46px;font-weight:500;text-transform:uppercase;line-height:1.2}
+.kpi i{display:block;font-style:normal;font-size:22px;color:var(--mut);margin-bottom:20px;letter-spacing:.1em}
+.med{margin-top:60px;font-size:30px;font-weight:500;letter-spacing:.04em;text-transform:uppercase}
+/* s7 */
+.cols{margin-top:52px;display:grid;grid-template-columns:1fr 1fr;gap:36px}
+.opt{border:2px solid var(--graf);background:var(--claro);padding:36px 40px;min-height:560px}
+.opt.o2{background:var(--graf);color:var(--creme)}
+.opt .t{font-size:46px;font-weight:500;text-transform:uppercase;margin-bottom:28px}
+.opt ul{list-style:none;display:grid;gap:18px;font-size:30px;line-height:1.35;font-weight:300}
+.opt li{padding-left:34px;position:relative}
+.opt li:before{content:"→";position:absolute;left:0}
+.opt .valor{margin-top:34px;font-size:30px}
+.o2 .valor{color:var(--graf);background:var(--lilas);border-color:var(--lilas)}
+.pay{position:absolute;left:120px;right:120px;bottom:100px;font-size:32px;font-weight:500;border-top:4px solid var(--graf);padding-top:20px}
+/* s8 */
+.grid4{margin-top:56px;display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.cd{border:2px solid var(--graf);background:var(--claro);padding:30px 40px;min-height:230px;font-size:36px;line-height:1.35;font-weight:400;display:flex;gap:28px;align-items:flex-start}
+.cd b{font-size:40px;font-weight:500;background:var(--lilas);border:2px solid var(--graf);width:70px;height:70px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex:none}
+/* s9 */
+#s9{display:none}
+#s9.on{display:flex;flex-direction:column;justify-content:center}
+#s9 h2{font-size:84px}
+#s9 .p{margin-top:50px;font-size:38px;max-width:1350px;color:var(--lilas)}
+/* s10 */
+.steps{margin-top:70px;display:grid;grid-template-columns:repeat(4,1fr);gap:28px;position:relative}
+.steps:before{content:"";position:absolute;left:0;right:0;top:34px;height:4px;background:var(--graf)}
+.steps .d{position:relative;z-index:1}
+.steps .card{min-height:260px;font-size:34px;font-weight:500;line-height:1.3}
+@page{size:1920px 1080px;margin:0}
+@media print{
+ html,body{overflow:visible;height:auto;background:#fff}
+ #stage{position:static;transform:none!important;width:1920px;height:auto}
+ .slide{display:block!important;position:relative;width:1920px;height:1080px;page-break-after:always;break-after:page;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+ .nav{display:none}
+}
+.nav{opacity:0;transition:opacity .2s;position:fixed;bottom:8px;left:50%;transform:translateX(-50%);display:flex;gap:6px;z-index:9}
+.nav:hover{opacity:1}.nav button{background:rgba(16,18,21,.7);color:#FAFAED;border:0;font:12px "IBM Plex Mono",monospace;padding:4px 10px;cursor:pointer}
+</style>
+</head>
+<body>
+<div id="stage">
+
+<section class="slide dark" id="s1">
+ <div class="kick">Proposta · Templo de Salomão</div>
+ <img class="ic" src="img/icone-criativosdofuturo.png" alt="Símbolo Criativos do Futuro">
+ <h1>Consultoria de IA para a equipe do Templo de Salomão</h1>
+ <p class="p">O atalho para aprender a trabalhar com IA no dia a dia da sua equipe, com Trombino ao lado de vocês durante um mês.</p>
+ <div class="num">1 / 10</div>
+</section>
+
+<section class="slide" id="s2">
+ <div class="kick">Demandas</div>
+ <h2>O que vocês trouxeram → como se resolve</h2>
+ <div class="rows">
+  <div class="row"><div class="a">Criar para a internet</div><div class="ar">→</div><div class="b">analisamos o que produzir e ensinamos como fazer com IA</div></div>
+  <div class="row"><div class="a">Gastar menos tentativas e créditos</div><div class="ar">→</div><div class="b">comandos certos, skills e agentes que guardam o jeito certo</div></div>
+  <div class="row"><div class="a">Equipe enxuta</div><div class="ar">→</div><div class="b">agentes para tarefas repetidas e apoio diário no WhatsApp</div></div>
+  <div class="row"><div class="a">Acervo grande</div><div class="ar">→</div><div class="b">entendemos a organização e orientamos como encontrar e usar o material</div></div>
+  <div class="row"><div class="a">Fluxos recorrentes (Agenda, cortes)</div><div class="ar">→</div><div class="b">mapeamos cada fluxo e programamos o que for automatizável</div></div>
+ </div>
+ <img class="brand" src="img/logo.png" alt="Criativos do Futuro"><div class="num">2 / 10</div>
+</section>
+
+<section class="slide dark" id="s3">
+ <div class="kick">O método</div>
+ <h2>O atalho: pular a curva de aprendizado</h2>
+ <div class="verbs">
+  <div class="verb"><small>01</small>Entende</div>
+  <div class="verb"><small>02</small>Analisa</div>
+  <div class="verb"><small>03</small>Ensina</div>
+  <div class="verb" style="background:var(--lilas);color:var(--graf)"><small style="opacity:.8">04</small>Ajuda a programar</div>
+ </div>
+ <p class="p">Trombino entra no seu ambiente real: <span class="w5">entende, analisa, ensina e ajuda a programar</span>. A IA a serviço da equipe, com a mensagem acima do rosto.</p>
+ <div class="num">3 / 10</div>
+</section>
+
+<section class="slide" id="s4">
+ <div class="kick">Timeline · Opção 1</div>
+ <h2>Passo a passo em 4 semanas · Opção 1</h2>
+ <div class="slot"><span class="pend">[H] distribuição por semana: André confirma</span></div>
+ <div class="tl">
+  <div class="st"><div class="dot">1</div><div class="card"><div class="wk">Semana 1</div><div class="vb">Entender</div><div class="what">ambiente, ferramentas, acervo, agenda, objetivos</div><div class="rec">mapa e prioridades</div></div></div>
+  <div class="st"><div class="dot">2</div><div class="card"><div class="wk">Semana 2</div><div class="vb">Analisar e ensinar</div><div class="what">o que produzir e como fazer com IA</div><div class="rec">comandos e método do 1º fluxo</div></div></div>
+  <div class="st"><div class="dot">3</div><div class="card"><div class="wk">Semana 3</div><div class="vb">Programar</div><div class="what">skills e agentes instalados nos fluxos prioritários</div><div class="rec">ferramentas funcionando</div></div></div>
+  <div class="st"><div class="dot">4</div><div class="card"><div class="wk">Semana 4</div><div class="vb">Consolidar</div><div class="what">o último encontro</div><div class="rec">guia do que foi criado e próximos passos</div></div></div>
+ </div>
+ <div class="foot"><span class="b">1 videochamada de 2 h por semana</span><span class="b">grupo de WhatsApp durante o mês</span></div>
+ <img class="brand" src="img/logo.png" alt="Criativos do Futuro"><div class="num">4 / 10</div>
+</section>
+
+<section class="slide" id="s5">
+ <div class="kick">Timeline · Opção 2</div>
+ <h2 style="font-size:56px;max-width:none">Opção 2: mesmas 4 semanas, mais o clone</h2>
+ <div class="slot"><span class="pend">[H] semanas das sessões e autorização: André confirma</span></div>
+ <div class="tl t5">
+  <div class="st"><div class="dot">1</div><div class="card"><div class="wk">Semana 1 · 3 h</div><div class="vb">Entender</div><div class="what">mapa e prioridades</div></div></div>
+  <div class="st cl"><div class="dot">2</div><div class="card"><div class="wk">Semana 2 · 3 h</div><div class="vb">Analisar e ensinar</div><div class="what">comandos e método do 1º fluxo</div><div class="clone"><b>+ Sessão do clone</b><br>2 h para implementar</div></div></div>
+  <div class="st cl"><div class="dot">3</div><div class="card"><div class="wk">Semana 3 · 3 h</div><div class="vb">Programar</div><div class="what">ferramentas funcionando</div><div class="clone"><b>+ Sessão do clone</b><br>2 h para implementar</div></div></div>
+  <div class="st"><div class="dot">4</div><div class="card"><div class="wk">Semana 4 · 3 h</div><div class="vb">Consolidar</div><div class="what">guia do que foi criado e próximos passos</div></div></div>
+ </div>
+ <p class="p" style="position:absolute;left:120px;right:120px;bottom:190px;font-size:30px">Os 4 degraus da opção 1, com 3 h de encontros por semana. Mais 2 sessões de 2 h para implementar o clone, nas semanas 2 e 3. O cliente decide quem e como.</p>
+ <div class="band">Antes da 1ª sessão: autorização da liderança e consentimento de quem será clonado, por escrito.</div>
+ <div class="num">5 / 10</div>
+</section>
+
+<section class="slide" id="s6">
+ <div class="kick">Resultados</div>
+ <h2>Resultados esperados (de processo)</h2>
+ <div class="slot"><span class="pend">[H] indicadores: André confirma</span></div>
+ <p class="res">Demandas atendidas. Objetivo: a equipe aplicar sozinha os fluxos criados.</p>
+ <p class="med">Medimos:</p>
+ <div class="kpis" style="margin-top:28px">
+  <div class="kpi"><i>01</i>tentativas e créditos por peça aprovada</div>
+  <div class="kpi"><i>02</i>tempo humano por peça</div>
+  <div class="kpi"><i>03</i>fluxos que a equipe repete</div>
+ </div>
+ <img class="brand" src="img/logo.png" alt="Criativos do Futuro"><div class="num">6 / 10</div>
+</section>
+
+<section class="slide" id="s7">
+ <div class="kick">Opções</div>
+ <h2>Duas opções, um mês, mesmo método</h2>
+ <div class="cols">
+  <div class="opt"><div class="t">Opção 1</div><ul><li>2 h/semana por videochamada = 8 h de encontros</li><li>grupo de WhatsApp (até cerca de 30 min por dia útil)</li></ul><div class="valor">[VALOR A DEFINIR]</div></div>
+  <div class="opt o2"><div class="t">Opção 2</div><ul><li>3 h/semana = 12 h, mais 2 sessões de 2 h do clone = 16 h de encontros <span class="pend" style="font-size:17px;margin-left:6px">[H] 16 h se as sessões do clone forem além das 3 h semanais: André confirma</span></li><li>WhatsApp igual</li></ul><div class="valor">[VALOR A DEFINIR]</div></div>
+ </div>
+ <div class="pay">Pagamento: 50% na assinatura, 50% após o último encontro</div>
+ <div class="num">7 / 10</div>
+</section>
+
+<section class="slide" id="s8">
+ <div class="kick">Condições</div>
+ <h2>Como funciona na prática</h2>
+ <div class="slot"><span class="pend">[H] ferramentas e créditos: André confirma</span></div>
+ <div class="grid4">
+  <div class="cd"><b>1</b><span>Tudo o que for criado (skills, agentes, ferramentas) é de propriedade do cliente</span></div>
+  <div class="cd"><b>2</b><span>O cliente decide quem participa das reuniões</span></div>
+  <div class="cd"><b>3</b><span>Dúvidas por grupo de WhatsApp, com quem o cliente adicionar</span></div>
+  <div class="cd"><b>4</b><span>Contrata o Templo de Salomão; a Criativos do Futuro emite a nota</span></div>
+  <div class="cd" style="grid-column:1/3;min-height:0"><b>5</b><span>Ferramentas e créditos: por conta do cliente <span class="pend" style="margin-left:14px">[H] André confirma</span></span></div>
+ </div>
+ <img class="brand" src="img/logo.png" alt="Criativos do Futuro"><div class="num">8 / 10</div>
+</section>
+
+<section class="slide dark" id="s9">
+ <div class="kick">Adiante</div>
+ <h2>E depois?</h2>
+ <p class="p">Se fizer sentido, depois de conhecer o ambiente, apresentamos uma proposta para derivar o conteúdo por canal e formato. Sem compromisso agora.</p>
+ <div class="num">9 / 10</div>
+</section>
+
+<section class="slide" id="s10">
+ <div class="kick">Próximo passo</div>
+ <h2>Próximo passo</h2>
+ <div class="slot"><span class="pend">[H] ordem dos passos: André confirma</span></div>
+ <div class="steps">
+  <div class="d"><div class="dot">1</div><div class="card">Escolher a opção</div></div>
+  <div class="d"><div class="dot">2</div><div class="card">Enviar os dados do Templo de Salomão para o contrato</div></div>
+  <div class="d"><div class="dot">3</div><div class="card">Assinar e pagar 50%</div></div>
+  <div class="d"><div class="dot">4</div><div class="card">Marcar o 1º encontro</div></div>
+ </div>
+ <img class="brand" src="img/logo.png" alt="Criativos do Futuro"><div class="num">10 / 10</div>
+</section>
+
+</div>
+<div class="nav"><button onclick="go(-1)">‹</button><button onclick="go(1)">›</button></div>
+<script>
+const S=[...document.querySelectorAll('.slide')];let i=0;
+function fit(){const k=Math.min(innerWidth/1920,innerHeight/1080);const st=document.getElementById('stage');st.style.transform='scale('+k+')';st.style.left=(innerWidth-1920*k)/2+'px';st.style.top=(innerHeight-1080*k)/2+'px'}
+function show(n){i=Math.max(0,Math.min(S.length-1,n));S.forEach((s,j)=>s.classList.toggle('on',j===i));try{history.replaceState(null,'','#'+(i+1))}catch(e){}}
+function go(d){show(i+d)}
+addEventListener('keydown',e=>{if(['ArrowRight','PageDown',' ','Enter'].includes(e.key)){e.preventDefault();go(1)}else if(['ArrowLeft','PageUp','Backspace'].includes(e.key)){e.preventDefault();go(-1)}else if(e.key==='Home')show(0);else if(e.key==='End')show(S.length-1);else if(e.key==='p'||e.key==='P')document.body.classList.toggle('limpo')});
+addEventListener('resize',fit);fit();show((parseInt(location.hash.slice(1))||1)-1);
+</script>
+</body>
+</html>
