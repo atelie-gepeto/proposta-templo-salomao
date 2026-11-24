@@ -1,9 +1,9 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-<meta name="robots" content="noindex, nofollow">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
 <title>Consultoria de IA · Templo de Salomão</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
@@ -13,99 +13,106 @@
 html,body{height:100%;background:#000;overflow:hidden}
 body{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-weight:400;color:var(--graf)}
 #stage{position:absolute;left:0;top:0;width:1920px;height:1080px;transform-origin:0 0}
-.slide{position:absolute;inset:0;display:none;padding:110px 120px 100px;background:var(--creme);overflow:hidden}
-.slide.on{display:block}
+.slide{position:absolute;inset:0;display:none;padding:130px 120px 100px;background:var(--creme);overflow:hidden}
+.slide.on{display:block;animation:in .35s ease both}
+@keyframes in{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 .slide.dark{background:var(--graf);color:var(--creme)}
-h1,h2{font-weight:500;text-transform:uppercase;letter-spacing:.01em;line-height:1.12}
-h2{font-size:64px;max-width:1500px}
-.dark h2,.dark h1{color:var(--creme)}
-.kick{position:absolute;top:44px;left:120px;font-size:20px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut)}
+h1,h2,h3{font-weight:500;text-transform:uppercase;letter-spacing:.01em;line-height:1.12}
+h1{font-size:88px;margin-bottom:50px}h2{font-size:72px}h2.mid{font-size:64px}h3{font-size:56px}
+.kick{position:absolute;top:44px;left:120px;font-size:20px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);z-index:3}
 .dark .kick{color:var(--mutd)}
-.num{position:absolute;bottom:40px;right:120px;font-size:20px;color:var(--mut)}
+.num{position:absolute;bottom:40px;right:120px;font-size:20px;color:var(--mut);z-index:3}
 .dark .num{color:var(--mutd)}
 .brand{position:absolute;bottom:34px;left:120px;height:26px}
-.p{font-size:34px;line-height:1.5;font-weight:300}
-.chip{background:var(--graf);color:var(--lilas);padding:0 .3em;font-weight:500;display:inline-block;transform:skewX(-4deg)}
-.dark .chip{background:var(--lilas);color:var(--graf)}
-.w5{font-weight:500}
-/* pendência (não faz parte do texto do slide) */
-.pend{display:inline-block;font-size:19px;letter-spacing:.06em;text-transform:uppercase;font-weight:500;background:#fff;color:var(--graf);border:2px dashed var(--graf);padding:6px 14px;border-radius:4px}
-.dark .pend{background:var(--lilas)}
-body.limpo .pend{display:none}
-.slot{position:absolute;top:44px;right:120px}
-.valor{display:inline-block;border:2px solid var(--graf);background:#fff;padding:2px 14px;font-weight:500}
-/* slide 1 */
-#s1{display:none}
-#s1.on{display:flex;flex-direction:column;justify-content:center}
-#s1 h1{font-size:92px;max-width:1350px;margin:0 0 56px}
-#s1 .p{max-width:1100px;color:var(--lilas)}
-#s1 .ic{position:absolute;right:130px;top:50%;margin-top:-210px;width:420px;opacity:.95}
-/* slide 2 */
-.rows{margin-top:48px;display:grid;gap:14px}
-.row{display:grid;grid-template-columns:560px 90px 1fr;align-items:center;background:var(--claro);border:2px solid var(--graf);min-height:118px}
-.row .a{padding:0 30px;font-size:32px;font-weight:500;text-transform:uppercase;background:var(--lilas);height:100%;display:flex;align-items:center;border-right:2px solid var(--graf)}
-.row .ar{text-align:center;font-size:44px}
-.row .b{padding:0 30px 0 0;font-size:29px;line-height:1.35;font-weight:300}
-/* slide 3 */
-.verbs{display:flex;gap:0;margin-top:70px;align-items:stretch}
-.verb{flex:1;padding:36px 30px;border:2px solid var(--creme);margin-left:-2px;font-size:44px;font-weight:500;text-transform:uppercase}
-.verb small{display:block;font-size:22px;font-weight:300;opacity:.7;margin-bottom:18px;letter-spacing:.1em}
-#s3 .p{margin-top:70px;max-width:1450px;font-size:38px}
-/* timeline */
-.tl{position:relative;margin-top:90px;display:grid;grid-template-columns:repeat(4,1fr);gap:28px}
-.tl:before{content:"";position:absolute;left:0;right:0;top:34px;height:4px;background:var(--graf)}
-.st{position:relative;padding-top:0}
-.dot{position:relative;z-index:1;width:70px;height:70px;border-radius:50%;background:var(--graf);color:var(--lilas);display:flex;align-items:center;justify-content:center;font-size:32px;font-weight:500;margin-bottom:26px}
-.st.cl .dot{background:var(--lilas);color:var(--graf);border:4px solid var(--graf)}
-.card{background:var(--claro);border:2px solid var(--graf);padding:28px 26px 30px;min-height:430px}
-.card .wk{font-size:20px;letter-spacing:.12em;text-transform:uppercase;color:var(--mut)}
-.card .vb{font-size:42px;font-weight:500;text-transform:uppercase;margin:8px 0 20px;line-height:1.1}
-.card .what{font-size:26px;line-height:1.4;font-weight:300}
-.card .rec{margin-top:22px;padding-top:18px;border-top:2px dashed var(--graf);font-size:26px;line-height:1.35;font-weight:500}
-.card .rec:before{content:"→ ";}
-.foot{position:absolute;left:120px;right:120px;bottom:100px;font-size:28px;font-weight:400;display:flex;gap:26px;align-items:center}
-.foot span.b{border:2px solid var(--graf);padding:8px 20px;background:var(--lilas)}
-.clone{margin-top:14px;background:var(--graf);color:var(--creme);padding:16px 20px;font-size:24px;line-height:1.3}
-.clone b{color:var(--lilas);font-weight:500}
-.band{position:absolute;left:120px;right:120px;bottom:100px;background:var(--lilas);border:2px solid var(--graf);padding:20px 30px;font-size:28px;font-weight:500}
-.tl.t5 .card{height:330px;min-height:0}.tl.t5{margin-top:40px}
-/* s6 */
-.res{margin-top:40px;font-size:38px;line-height:1.4;max-width:1500px;font-weight:300}
-.kpis{margin-top:60px;display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
-.kpi{border:2px solid var(--graf);background:var(--claro);padding:40px 34px;min-height:420px;font-size:46px;font-weight:500;text-transform:uppercase;line-height:1.2}
-.kpi i{display:block;font-style:normal;font-size:22px;color:var(--mut);margin-bottom:20px;letter-spacing:.1em}
-.med{margin-top:60px;font-size:30px;font-weight:500;letter-spacing:.04em;text-transform:uppercase}
-.nums{margin-top:60px}.nums .kpi{min-height:340px;font-size:40px;font-weight:300;text-transform:none;line-height:1.3;display:flex;flex-direction:column;justify-content:flex-start}.nums .kpi b{display:block;white-space:nowrap;font-size:124px;font-weight:500;line-height:1;margin-bottom:24px;letter-spacing:-.02em}
-/* s7 */
-.cols{margin-top:52px;display:grid;grid-template-columns:1fr 1fr;gap:36px}
-.opt{border:2px solid var(--graf);background:var(--claro);padding:36px 40px;min-height:560px}
-.opt.o2{background:var(--graf);color:var(--creme)}
-.opt .t{font-size:46px;font-weight:500;text-transform:uppercase;margin-bottom:28px}
-.opt ul{list-style:none;display:grid;gap:18px;font-size:30px;line-height:1.35;font-weight:300}
-.opt li{padding-left:34px;position:relative}
-.opt li:before{content:"→";position:absolute;left:0}
-.opt .valor{margin-top:34px;font-size:30px}
-.o2 .valor{color:var(--graf);background:var(--lilas);border-color:var(--lilas)}
-.pay{position:absolute;left:120px;right:120px;bottom:100px;font-size:32px;font-weight:500;border-top:4px solid var(--graf);padding-top:20px}
-/* s8 */
-.grid4{margin-top:56px;display:grid;grid-template-columns:1fr 1fr;gap:28px}
-.cd{border:2px solid var(--graf);background:var(--claro);padding:30px 40px;min-height:230px;font-size:36px;line-height:1.35;font-weight:400;display:flex;gap:28px;align-items:flex-start}
-.cd b{font-size:40px;font-weight:500;background:var(--lilas);border:2px solid var(--graf);width:70px;height:70px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex:none}
-/* s9 */
-#s9{display:none}
-#s9.on{display:flex;flex-direction:column;justify-content:center}
-#s9 h2{font-size:84px}
-#s9 .p{margin-top:50px;font-size:38px;max-width:1350px;color:var(--lilas)}
-/* s10 */
-.steps{margin-top:70px;display:grid;grid-template-columns:repeat(4,1fr);gap:28px;position:relative}
-.steps:before{content:"";position:absolute;left:0;right:0;top:34px;height:4px;background:var(--graf)}
-.steps .d{position:relative;z-index:1}
-.steps .card{min-height:260px;font-size:34px;font-weight:500;line-height:1.3}
+.p{font-size:36px;line-height:1.5;font-weight:300}.lil{color:var(--lilas)}
+.big2{font-size:58px;line-height:1.3;font-weight:400}
+.lab{font-size:22px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);margin-bottom:22px}
+.dark .lab{color:var(--mutd)}
+.ic{fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:square;stroke-linejoin:miter;overflow:visible}
+.ic .ac{fill:var(--lilas)}
+.dark .ic .ac{fill:rgba(233,227,244,.22)}
+.ic.s{width:56px;height:56px;vertical-align:middle;margin-right:14px}
+.ic.m{width:96px;height:96px}.ic.l{width:150px;height:150px}.ic.xl{width:300px;height:300px}.ic.xxl{width:420px;height:420px}
+.split{display:flex;height:100%;align-items:center;gap:80px}
+.split .txt{flex:1.1}
+h2+.p{margin-top:44px}.split .p{font-size:44px}.split .big2{font-size:58px}.split .pic{flex:1;height:100%;background-size:cover;background-position:center;margin-right:-120px;margin-top:-130px;margin-bottom:-100px;height:1080px}
+.icbox{flex:none;width:520px;height:520px;background:var(--lilas);border:2px solid var(--graf);display:flex;align-items:center;justify-content:center;color:var(--graf)}
+.dark .icbox{background:var(--surf);border-color:var(--creme);color:var(--creme)}
+.icbox .ic.xxl{width:440px;height:440px}
+#stage .slide:first-child .split .pic{flex:none;width:820px;height:760px;margin:0 -120px 0 0}
+.trio{display:grid;gap:26px;margin-top:56px}.trio div{display:flex;align-items:center;gap:30px;font-size:40px;font-weight:500;text-transform:uppercase}
+.trio .ic{width:84px;height:84px;flex:none}
+.strip{display:grid;grid-template-columns:1fr 1fr;gap:18px;width:640px;flex:none}
+.strip img{width:100%;border:2px solid var(--graf);display:block}
+.pre{font-size:40px;font-weight:300;text-transform:uppercase;letter-spacing:.08em;min-height:50px}
+.big{font-size:260px;font-weight:500;line-height:1;letter-spacing:-.03em;margin:10px 0 20px}
+.sec{display:flex;height:100%;align-items:center}.sec .pic{position:absolute;right:0;top:0;bottom:0;width:860px;background-size:cover;border-left:2px solid var(--creme)}
+.sec .txt{width:860px}.sec h2{font-size:80px}
+.prog{position:absolute;top:44px;right:120px;display:flex;gap:10px;z-index:3}.prog i{width:44px;height:12px;border:2px solid var(--graf);display:block}.prog i.on{background:var(--graf)}
+.dem{display:flex;align-items:stretch;height:100%;gap:0}
+.dem .d1{flex:1;background:var(--lilas);border:2px solid var(--graf);padding:50px 50px;display:flex;flex-direction:column;justify-content:center;gap:10px}
+.dem .d2{flex:1;background:var(--graf);color:var(--creme);padding:50px 56px;display:flex;flex-direction:column;justify-content:center}
+.dem .d2 .lab{color:var(--lilas)}.dem .d2 p{font-size:50px;line-height:1.3;font-weight:300}
+.dem .ar{flex:none;width:150px;display:flex;align-items:center;justify-content:center}.dem .ar svg{width:110px;height:110px;color:var(--graf)}
+.dem .d1 .ic{margin-bottom:20px}
+.verbs{display:flex;margin-top:110px}.verb{flex:1;padding:44px 30px 60px;min-height:470px;border:2px solid var(--creme);margin-left:-2px;font-size:44px;justify-content:space-between;font-weight:500;text-transform:uppercase;display:flex;flex-direction:column;gap:20px}
+.verb small{font-size:22px;font-weight:300;opacity:.7;letter-spacing:.1em}.verb .ic{width:170px;height:170px}
+.verb.last{background:var(--lilas);color:var(--graf)}.verb.last .ic .ac{fill:#fff}
+.duo{display:flex;gap:30px;flex:none}
+.tt{font-size:68px;max-width:1700px}.tt.long{font-size:60px}.tt.sm{font-size:48px}
+.rail{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:56px;position:relative}
+.rail.big{margin-top:230px}.rail.big .nd span{width:130px;height:130px;font-size:56px}.rail.big:before{top:63px;height:6px}.rail.big .nd b{font-size:34px;margin-top:34px}.rail.big .nd em{font-size:34px;margin-top:0;padding:8px 20px;letter-spacing:0}
+.rail:before{content:"";position:absolute;left:5%;right:5%;top:41px;height:4px;background:var(--graf)}
+.nd{position:relative;text-align:center;z-index:1}
+.nd span{display:flex;margin:0 auto;width:84px;height:84px;border-radius:50%;background:var(--creme);border:4px solid var(--graf);align-items:center;justify-content:center;font-size:36px;font-weight:500}
+.nd.done span{background:var(--graf);color:var(--lilas)}
+.nd.cur span{background:var(--lilas);width:104px;height:104px;margin:-10px auto;box-shadow:0 0 0 8px var(--creme),0 0 0 11px var(--graf)}
+.nd b{display:block;margin-top:22px;font-size:26px;font-weight:500;text-transform:uppercase;letter-spacing:.04em;padding:0 14px}
+.nd.cur b{margin-top:34px}
+.nd em{position:absolute;top:-62px;left:50%;transform:translateX(-50%);white-space:nowrap;margin-top:0;background:var(--graf);color:var(--lilas);font-style:normal;font-weight:500;font-size:24px;padding:4px 14px}
+.wk{display:flex;align-items:center;gap:60px;margin-top:80px}.wl{flex:1}
+.wk .icbox{width:420px;height:420px}.wk .ic.xl{width:260px;height:260px}
+.wl h2{font-size:84px;margin-bottom:26px}.wl .p{font-size:40px;line-height:1.4;max-width:1000px}
+.rec{position:absolute;left:120px;right:120px;bottom:100px;background:var(--graf);color:var(--creme);padding:26px 40px;font-size:42px;font-weight:500}
+.rec span{color:var(--lilas);margin-right:16px}
+.rhythm{display:flex;gap:40px;height:100%;align-items:center}.rb{flex:1;height:640px;border:2px solid var(--graf);background:var(--lilas);padding:50px;display:flex;flex-direction:column;justify-content:space-between}
+.rb p{font-size:52px;font-weight:500;line-height:1.25;text-transform:uppercase}.rb.dk{background:var(--graf);color:var(--creme)}.rb.dk .ic .ac{fill:rgba(233,227,244,.22)}
+.blocks{flex:none;width:640px}.bl{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.bl i{font-style:normal;font-size:34px;font-weight:500;text-align:center;padding:34px 0;border:2px solid var(--graf);background:var(--lilas);color:var(--graf)}
+.bl i.cl{background:var(--graf);color:var(--lilas);border-color:var(--lilas)}
+.dark .bl i{border-color:var(--creme);background:transparent;color:var(--creme)}.dark .bl i.cl{background:var(--lilas);color:var(--graf)}
+.consent{height:100%;display:flex;flex-direction:column;justify-content:center;gap:50px}.c1{display:flex;align-items:center;gap:50px}.c1 h2{font-size:92px;max-width:1100px}
+.band2{background:var(--lilas);border:2px solid var(--graf);padding:38px 44px;font-size:46px;font-weight:500;display:flex;gap:40px;align-items:center;line-height:1.25}
+.band2 .ic{width:110px;height:110px;flex:none}
+.opt1{display:flex;gap:70px;height:100%;align-items:center}.opt1 .ot{flex:1.2}.opt1 h2{font-size:62px;margin-bottom:40px}.opt1 .p{font-size:36px}
+.opt1 .ov{flex:none;width:640px;display:flex;flex-direction:column;gap:34px}
+.valor{display:inline-block;font-size:96px;font-weight:500;border:3px solid currentColor;padding:6px 30px;text-align:center}
+.dark .valor{background:var(--lilas);color:var(--graf);border-color:var(--lilas)}
+.cmp{display:grid;grid-template-columns:1fr 1fr;gap:40px;height:100%;align-items:center}
+.cc{border:2px solid var(--graf);padding:36px 44px;background:var(--claro);display:flex;flex-direction:column;gap:22px}.cc.o2{background:var(--graf);color:var(--creme);border-color:var(--graf)}.cc.o2 .lab{color:var(--lilas)}
+.cc .hh{font-size:120px;font-weight:500;line-height:1}.cc .bl i{padding:20px 0}.cc .lab{margin-bottom:0}.cc.o2 .bl i{border-color:var(--creme)}.cc.o2 .bl i:not(.cl){background:var(--creme)}.cc.o2 .bl i.cl{background:var(--lilas);color:var(--graf)}
+.cc .valor{font-size:72px}.cc.o2 .valor{background:var(--lilas);color:var(--graf);border-color:var(--lilas)}
+.pay{height:100%;display:flex;flex-direction:column;justify-content:center}.half{display:flex;height:620px;border:2px solid var(--graf)}
+.half>div{flex:1;display:flex;flex-direction:column;justify-content:center;padding:50px}.half b{font-size:200px;line-height:1;font-weight:500}.half span{font-size:44px;font-weight:500;text-transform:uppercase;margin-top:16px}
+.h1{background:var(--lilas)}.h2{background:var(--graf);color:var(--creme)}.h2 b{color:var(--lilas)}
+.cond{display:flex;gap:60px;align-items:center;height:100%}.cond .n{flex:none;width:170px;height:170px;border-radius:50%;background:var(--lilas);border:4px solid var(--graf);font-size:90px;font-weight:500;display:flex;align-items:center;justify-content:center}
+.cond p{flex:1;font-size:70px;font-weight:500;line-height:1.25}.cond .icbox{width:480px;height:480px}.cond .ic.xl{width:300px;height:300px}
+.chipn{display:inline-block;margin-top:50px;background:var(--lilas);color:var(--graf);font-size:36px;font-weight:500;padding:12px 28px;text-transform:uppercase}
+.close{position:absolute;inset:0;background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center}.close:before{content:"";position:absolute;inset:0;background:rgba(16,18,21,.55)}.close img{position:relative;width:360px}
+
+.strip2{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;height:100%;align-items:center}.strip2 img{width:100%;border:2px solid var(--graf);display:block}
+.frag{transition:opacity .3s}.frag.h{opacity:0}
+.onimg .num{background:rgba(16,18,21,.8);color:var(--creme);padding:6px 14px}
+.b12{height:100%;display:flex;flex-direction:column;justify-content:center;gap:90px}
+.hbar{display:flex;height:150px;border:3px solid var(--creme);flex:none}.hbar .hb-main{flex:1;background:var(--creme);color:var(--graf);font-size:64px;font-weight:500;display:flex;align-items:center;padding:0 36px}
+.hb-cl{background:var(--lilas);color:var(--graf);border-left:3px solid var(--graf);display:flex;align-items:center;justify-content:center;font-weight:500;font-size:34px;text-align:center;line-height:1.2;flex:none}
+.cc .hbar{height:96px;border-color:var(--graf);margin-top:14px}.cc .hbar .hb-main{background:var(--lilas);font-size:30px}.cc.o2 .hbar{border-color:var(--creme)}.cc.o2 .hbar .hb-main{background:var(--creme)}.cc .hb-cl{font-size:20px;padding:0 6px}
 @page{size:1920px 1080px;margin:0}
 @media print{
+ .frag.h{opacity:1!important}
  html,body{overflow:visible;height:auto;background:#fff}
  #stage{position:static;transform:none!important;width:1920px;height:auto}
- .slide{display:block!important;position:relative;width:1920px;height:1080px;page-break-after:always;break-after:page;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+ .slide{display:block!important;position:relative;width:1920px;height:1080px;page-break-after:always;break-after:page;-webkit-print-color-adjust:exact;print-color-adjust:exact;animation:none!important}
  .nav{display:none}
 }
 .nav{opacity:0;transition:opacity .2s;position:fixed;bottom:8px;left:50%;transform:translateX(-50%);display:flex;gap:6px;z-index:9}
@@ -114,132 +121,138 @@ body.limpo .pend{display:none}
 </head>
 <body>
 <div id="stage">
-
-<section class="slide dark" id="s1">
- <div class="kick">Proposta · Templo de Salomão</div>
- <img class="ic" src="img/icone-criativosdofuturo.png" alt="Símbolo Criativos do Futuro">
- <h1>Consultoria de IA para a equipe do Templo de Salomão</h1>
- <p class="p">O atalho para aprender a trabalhar com IA no dia a dia da sua equipe, com Trombino ao lado de vocês durante um mês.</p>
- <div class="num">1 / 10</div>
+<section class="slide dark">
+<div class="kick">Proposta · Templo de Salomão</div>
+<div class="split"><div class="txt"><h1>Consultoria de IA para a equipe do Templo de Salomão</h1>
+<p class="p lil">O atalho para aprender a trabalhar com IA no dia a dia da sua equipe, com Trombino ao lado de vocês durante um mês.</p></div>
+<div class="pic" style="background-image:url(img/ig/alien-rosa.jpg)"></div></div><div class="num">1 / 40</div>
 </section>
-
-<section class="slide" id="sCF">
- <div class="kick">Quem somos</div>
- <h2>Criativos do Futuro</h2>
- <p class="p" style="margin-top:36px;max-width:1500px">Escola, comunidade e software de IA e criação.</p>
- <div class="kpis nums">
-  <div class="kpi"><b>~8 mil</b>alunos</div>
-  <div class="kpi"><b>30</b>cursos</div>
-  <div class="kpi"><b>75+</b>empresas atendidas com IA em seus fluxos e processos</div>
- </div>
- <img class="brand" src="img/logo.png" alt="Criativos do Futuro"><div class="num">2 / 10</div>
+<section class="slide ">
+<div class="kick">Quem somos</div><div class="split"><div class="txt"><h2>Criativos do Futuro</h2>
+<div class="trio">
+<div class="frag"><svg class="ic m" viewBox="0 0 48 48" aria-hidden="true"><path class="ac" d="M24 8L44 18L24 28L4 18Z"/><path d="M12 24V34C12 40 36 40 36 34V24"/></svg><span>Escola</span></div><div class="frag"><svg class="ic m" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="10" r="6"/><circle class="ac" cx="9" cy="37" r="6"/><circle cx="39" cy="37" r="6"/><path d="M20 15L12 31M28 15L36 31M15 37H33"/></svg><span>Comunidade</span></div><div class="frag"><svg class="ic m" viewBox="0 0 48 48" aria-hidden="true"><rect class="ac" x="4" y="8" width="40" height="32"/><path d="M12 18L20 24L12 30M24 32H36"/></svg><span>Software de IA e criação</span></div></div></div></div><img class="brand" src="img/logo.png" alt="Criativos do Futuro"><div class="num">2 / 40</div>
 </section>
-
-<section class="slide" id="s2">
- <div class="kick">Demandas</div>
- <h2>O que vocês trouxeram → como se resolve</h2>
- <div class="rows">
-  <div class="row"><div class="a">Criar para a internet</div><div class="ar">→</div><div class="b">analisamos o que produzir e ensinamos como fazer com IA</div></div>
-  <div class="row"><div class="a">Gastar menos tentativas e créditos</div><div class="ar">→</div><div class="b">comandos certos, skills e agentes que guardam o jeito certo</div></div>
-  <div class="row"><div class="a">Equipe enxuta</div><div class="ar">→</div><div class="b">agentes para tarefas repetidas e apoio diário no WhatsApp</div></div>
-  <div class="row"><div class="a">Acervo grande</div><div class="ar">→</div><div class="b">entendemos a organização e orientamos como encontrar e usar o material</div></div>
-  <div class="row"><div class="a">Fluxos recorrentes (Agenda, cortes)</div><div class="ar">→</div><div class="b">mapeamos cada fluxo e programamos o que for automatizável</div></div>
- </div>
- <img class="brand" src="img/logo.png" alt="Criativos do Futuro"><div class="num">3 / 10</div>
+<section class="slide ">
+<div class="kick">Quem somos</div><div class="strip2"><img src="img/ig/site-1.jpg" alt="Capa de carrossel do Instagram da Criativos do Futuro"><img src="img/ig/site-2.jpg" alt="Capa de carrossel do Instagram da Criativos do Futuro"><img src="img/ig/site-3.jpg" alt="Capa de carrossel do Instagram da Criativos do Futuro"><img src="img/ig/site-4.jpg" alt="Capa de carrossel do Instagram da Criativos do Futuro"></div><img class="brand" src="img/logo.png" alt="Criativos do Futuro"><div class="num">3 / 40</div>
 </section>
-
-<section class="slide dark" id="s3">
- <div class="kick">O método</div>
- <h2>O atalho: pular a curva de aprendizado</h2>
- <div class="verbs">
-  <div class="verb"><small>01</small>Analisa e planeja</div>
-  <div class="verb"><small>02</small>Ensina e organiza</div>
-  <div class="verb"><small>03</small>Programa e executa</div>
-  <div class="verb" style="background:var(--lilas);color:var(--graf)"><small style="opacity:.8">04</small>Refina e consolida</div>
- </div>
- <p class="p">Trombino entra no seu ambiente real e, junto com a equipe, <span class="w5">analisa e planeja, ensina e organiza, programa e executa, refina e consolida</span>. A IA a serviço da equipe, com a mensagem acima do rosto.</p>
- <div class="num">4 / 10</div>
+<section class="slide ">
+<div class="kick">Quem somos</div><div class="split"><div class="txt"><div class="pre">Cerca de</div><div class="big">8 mil</div><p class="p">alunos</p></div><div class="icbox"><svg class="ic xl" viewBox="0 0 48 48" aria-hidden="true"><path class="ac" d="M24 8L44 18L24 28L4 18Z"/><path d="M12 24V34C12 40 36 40 36 34V24"/></svg></div></div><img class="brand" src="img/logo.png" alt="Criativos do Futuro"><div class="num">4 / 40</div>
 </section>
-
-<section class="slide" id="s4">
- <div class="kick">Timeline · Opção 1</div>
- <h2>Passo a passo em 4 semanas · Opção 1</h2>
- <div class="tl">
-  <div class="st"><div class="dot">1</div><div class="card"><div class="wk">Semana 1</div><div class="vb">Analisar e planejar</div><div class="what">mapeamos as demandas e como usar o tempo com Trombino</div><div class="rec">plano de trabalho</div></div></div>
-  <div class="st"><div class="dot">2</div><div class="card"><div class="wk">Semana 2</div><div class="vb">Ensinar e organizar</div><div class="what">ensino a partir do mapeamento; organização do trabalho e do fluxo de acervo</div><div class="rec">método e fluxos organizados</div></div></div>
-  <div class="st"><div class="dot">3</div><div class="card"><div class="wk">Semana 3</div><div class="vb">Programar e executar</div><div class="what">agentes e fluxos programados, parte do processo automatizada, execução em conjunto</div><div class="rec">o que foi imaginado funcionando</div></div></div>
-  <div class="st"><div class="dot">4</div><div class="card"><div class="wk">Semana 4</div><div class="vb">Refinar e consolidar</div><div class="what">ajustes no que a equipe executou</div><div class="rec">trabalho final consolidado</div></div></div>
- </div>
- <div class="foot"><span class="b">1 videochamada de 2 h por semana</span><span class="b">grupo de WhatsApp durante o mês</span></div>
- <img class="brand" src="img/logo.png" alt="Criativos do Futuro"><div class="num">5 / 10</div>
+<section class="slide ">
+<div class="kick">Quem somos</div><div class="split"><div class="txt"><div class="pre"></div><div class="big">30</div><p class="p">cursos</p></div><div class="icbox"><svg class="ic xl" viewBox="0 0 48 48" aria-hidden="true"><path class="ac" d="M24 12C18 8 12 8 6 10V38C12 36 18 36 24 40C30 36 36 36 42 38V10C36 8 30 8 24 12Z"/><path d="M24 12V40"/></svg></div></div><img class="brand" src="img/logo.png" alt="Criativos do Futuro"><div class="num">5 / 40</div>
 </section>
-
-<section class="slide" id="s5">
- <div class="kick">Timeline · Opção 2</div>
- <h2 style="font-size:56px;max-width:none">Opção 2: mesmas 4 semanas, mais o clone</h2>
- <div class="tl t5">
-  <div class="st"><div class="dot">1</div><div class="card"><div class="wk">Semana 1</div><div class="vb">Analisar e planejar</div></div></div>
-  <div class="st cl"><div class="dot">2</div><div class="card"><div class="wk">Semana 2</div><div class="vb">Ensinar e organizar</div><div class="clone"><b>+ Sessão do clone</b><br>2 h para implementar</div></div></div>
-  <div class="st cl"><div class="dot">3</div><div class="card"><div class="wk">Semana 3</div><div class="vb">Programar e executar</div><div class="clone"><b>+ Sessão do clone</b><br>2 h para implementar</div></div></div>
-  <div class="st"><div class="dot">4</div><div class="card"><div class="wk">Semana 4</div><div class="vb">Refinar e consolidar</div></div></div>
- </div>
- <p class="p" style="position:absolute;left:120px;right:120px;bottom:215px;font-size:30px">As mesmas 4 semanas, com 12 h de encontros no mês, incluindo 2 sessões de 2 h para implementar o clone, nas semanas 2 e 3. O cliente decide quem e como.</p>
- <div class="band">Antes da 1ª sessão: consentimento por escrito de quem será clonado.</div>
- <div class="num">6 / 10</div>
+<section class="slide ">
+<div class="kick">Quem somos</div><div class="split"><div class="txt"><div class="pre">Mais de</div><div class="big">75</div><p class="p">empresas atendidas com IA em seus fluxos e processos</p></div><div class="icbox"><svg class="ic xl" viewBox="0 0 48 48" aria-hidden="true"><rect class="ac" x="10" y="6" width="28" height="38"/><path d="M17 14H21M27 14H31M17 22H21M27 22H31M17 30H21M27 30H31M21 44V37H27V44"/></svg></div></div><img class="brand" src="img/logo.png" alt="Criativos do Futuro"><div class="num">6 / 40</div>
 </section>
-
-<section class="slide" id="s7">
- <div class="kick">Opções</div>
- <h2>Duas opções, um mês, mesmo método</h2>
- <div class="cols">
-  <div class="opt"><div class="t">Opção 1</div><ul><li>2 h/semana por videochamada = 8 h de encontros</li><li>grupo de WhatsApp (até cerca de 30 min por dia útil)</li></ul><div class="valor">R$ 8.000</div></div>
-  <div class="opt o2"><div class="t">Opção 2</div><ul><li>12 h de encontros no mês, incluindo 2 sessões de 2 h do clone</li><li>WhatsApp igual</li></ul><div class="valor">R$ 12.000</div></div>
- </div>
- <div class="pay">Pagamento: 50% na assinatura, 50% após o último encontro</div>
- <div class="num">7 / 10</div>
+<section class="slide dark onimg">
+<div class="kick">Demandas</div><div class="sec"><div class="pic" style="background-image:url(img/ig/bolha.jpg);background-position:center"></div><div class="txt"><h2>O que vocês trouxeram → como se resolve</h2></div></div><div class="num">7 / 40</div>
 </section>
-
-<section class="slide" id="s8">
- <div class="kick">Condições</div>
- <h2>Como funciona na prática</h2>
- <div class="grid4">
-  <div class="cd"><b>1</b><span>Tudo o que for criado (skills, agentes, ferramentas) é de propriedade do cliente</span></div>
-  <div class="cd"><b>2</b><span>O cliente decide quem participa das reuniões</span></div>
-  <div class="cd"><b>3</b><span>Dúvidas por grupo de WhatsApp, com quem o cliente adicionar</span></div>
-  <div class="cd"><b>4</b><span>Contrata o Templo de Salomão; a Criativos do Futuro emite a nota</span></div>
-  <div class="cd" style="grid-column:1/3;min-height:0"><b>5</b><span>Ferramentas e créditos: por conta do cliente</span></div>
- </div>
- <img class="brand" src="img/logo.png" alt="Criativos do Futuro"><div class="num">8 / 10</div>
+<section class="slide ">
+<div class="kick">Demandas</div><div class="prog"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></div><div class="dem"><div class="d1"><svg class="ic l" viewBox="0 0 48 48" aria-hidden="true"><rect class="ac" x="6" y="8" width="36" height="28"/><path d="M20 16 L32 22 L20 28Z"/><path d="M14 42H34M24 36V42"/></svg><div class="lab">Demanda 1</div><h3>Criar para a internet</h3></div><div class="ar"><svg class="ic ar" viewBox="0 0 48 48" aria-hidden="true"><path d="M5 24H41M28 11L41 24L28 37"/></svg></div><div class="d2"><div class="lab">Como se resolve</div><p>analisamos o que produzir e ensinamos como fazer com IA</p></div></div><img class="brand" src="img/logo.png" alt="Criativos do Futuro"><div class="num">8 / 40</div>
 </section>
-
-<section class="slide dark" id="s9">
- <div class="kick">Adiante</div>
- <h2>E depois?</h2>
- <p class="p">Se fizer sentido, depois de conhecer o ambiente, apresentamos uma proposta para derivar o conteúdo por canal e formato. Sem compromisso agora.</p>
- <div class="num">9 / 10</div>
+<section class="slide ">
+<div class="kick">Demandas</div><div class="prog"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></div><div class="dem"><div class="d1"><svg class="ic l" viewBox="0 0 48 48" aria-hidden="true"><circle class="ac" cx="24" cy="24" r="17"/><path d="M31 17 A10 10 0 1 0 31 31"/></svg><div class="lab">Demanda 2</div><h3>Gastar menos tentativas e créditos</h3></div><div class="ar"><svg class="ic ar" viewBox="0 0 48 48" aria-hidden="true"><path d="M5 24H41M28 11L41 24L28 37"/></svg></div><div class="d2"><div class="lab">Como se resolve</div><p>comandos certos, skills e agentes que guardam o jeito certo</p></div></div><img class="brand" src="img/logo.png" alt="Criativos do Futuro"><div class="num">9 / 40</div>
 </section>
-
-<section class="slide" id="s10">
- <div class="kick">Próximo passo</div>
- <h2>Próximo passo</h2>
- <div class="steps">
-  <div class="d"><div class="dot">1</div><div class="card">Escolher a opção</div></div>
-  <div class="d"><div class="dot">2</div><div class="card">Enviar os dados do Templo de Salomão para o contrato</div></div>
-  <div class="d"><div class="dot">3</div><div class="card">Assinar e pagar 50%</div></div>
-  <div class="d"><div class="dot">4</div><div class="card">Marcar o 1º encontro</div></div>
- </div>
- <img class="brand" src="img/logo.png" alt="Criativos do Futuro"><div class="num">10 / 10</div>
+<section class="slide ">
+<div class="kick">Demandas</div><div class="prog"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></div><div class="dem"><div class="d1"><svg class="ic l" viewBox="0 0 48 48" aria-hidden="true"><circle cx="17" cy="15" r="6"/><path d="M5 41C5 29 29 29 29 41Z"/><circle class="ac" cx="34" cy="19" r="5"/><path d="M31 41C31 33 44 33 44 41Z"/></svg><div class="lab">Demanda 3</div><h3>Equipe enxuta</h3></div><div class="ar"><svg class="ic ar" viewBox="0 0 48 48" aria-hidden="true"><path d="M5 24H41M28 11L41 24L28 37"/></svg></div><div class="d2"><div class="lab">Como se resolve</div><p>agentes para tarefas repetidas e apoio diário no WhatsApp</p></div></div><img class="brand" src="img/logo.png" alt="Criativos do Futuro"><div class="num">10 / 40</div>
 </section>
-
+<section class="slide ">
+<div class="kick">Demandas</div><div class="prog"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></div><div class="dem"><div class="d1"><svg class="ic l" viewBox="0 0 48 48" aria-hidden="true"><rect x="6" y="8" width="16" height="14"/><rect class="ac" x="26" y="8" width="16" height="14"/><rect class="ac" x="6" y="26" width="16" height="14"/><rect x="26" y="26" width="16" height="14"/></svg><div class="lab">Demanda 4</div><h3>Acervo grande</h3></div><div class="ar"><svg class="ic ar" viewBox="0 0 48 48" aria-hidden="true"><path d="M5 24H41M28 11L41 24L28 37"/></svg></div><div class="d2"><div class="lab">Como se resolve</div><p>entendemos a organização e orientamos como encontrar e usar o material</p></div></div><img class="brand" src="img/logo.png" alt="Criativos do Futuro"><div class="num">11 / 40</div>
+</section>
+<section class="slide ">
+<div class="kick">Demandas</div><div class="prog"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div><div class="dem"><div class="d1"><svg class="ic l" viewBox="0 0 48 48" aria-hidden="true"><path d="M9 25A15 15 0 0 1 35 14"/><path d="M36 6V15H27"/><path d="M39 23A15 15 0 0 1 13 34"/><path d="M12 42V33H21"/><circle class="ac" cx="24" cy="24" r="4"/></svg><div class="lab">Demanda 5</div><h3>Fluxos recorrentes (Agenda, cortes)</h3></div><div class="ar"><svg class="ic ar" viewBox="0 0 48 48" aria-hidden="true"><path d="M5 24H41M28 11L41 24L28 37"/></svg></div><div class="d2"><div class="lab">Como se resolve</div><p>mapeamos cada fluxo e programamos o que for automatizável</p></div></div><img class="brand" src="img/logo.png" alt="Criativos do Futuro"><div class="num">12 / 40</div>
+</section>
+<section class="slide dark">
+<div class="kick">O método</div><div class="split"><div class="txt"><h2>O atalho: pular a curva de aprendizado</h2></div><div class="icbox"><svg class="ic xxl" viewBox="0 0 48 48" aria-hidden="true"><path d="M5 42C5 12 40 40 43 6"/><path d="M5 42L43 6" stroke-dasharray="3 4"/><circle class="ac" cx="5" cy="42" r="3"/><circle class="ac" cx="43" cy="6" r="3"/></svg></div></div><div class="num">13 / 40</div>
+</section>
+<section class="slide dark">
+<div class="kick">O método</div><p class="p big2">Trombino entra no seu ambiente real e, junto com a equipe,</p><div class="verbs"><div class="verb frag"><small>01</small><svg class="ic m" viewBox="0 0 48 48" aria-hidden="true"><circle class="ac" cx="20" cy="20" r="13"/><path d="M30 30L43 43"/></svg><span>Analisa e planeja</span></div><div class="verb frag"><small>02</small><svg class="ic m" viewBox="0 0 48 48" aria-hidden="true"><rect class="ac" x="6" y="6" width="36" height="24"/><path d="M24 30V42M14 42H34M13 14H35M13 22H27"/></svg><span>Ensina e organiza</span></div><div class="verb frag"><small>03</small><svg class="ic m" viewBox="0 0 48 48" aria-hidden="true"><path d="M16 12L5 24L16 36M32 12L43 24L32 36M27 8L21 40"/><circle class="ac" cx="24" cy="24" r="3"/></svg><span>Programa e executa</span></div><div class="verb frag last"><small>04</small><svg class="ic m" viewBox="0 0 48 48" aria-hidden="true"><path d="M5 13H43M5 24H43M5 35H43"/><circle class="ac" cx="15" cy="13" r="4"/><circle class="ac" cx="31" cy="24" r="4"/><circle class="ac" cx="21" cy="35" r="4"/></svg><span>Refina e consolida</span></div></div><div class="num">14 / 40</div>
+</section>
+<section class="slide ">
+<div class="kick">O método</div><div class="split"><div class="txt"><h2 class="mid">A IA a serviço da equipe, com a mensagem acima do rosto.</h2></div><div class="duo"><svg class="ic xl" viewBox="0 0 48 48" aria-hidden="true"><circle cx="17" cy="15" r="6"/><path d="M5 41C5 29 29 29 29 41Z"/><circle class="ac" cx="34" cy="19" r="5"/><path d="M31 41C31 33 44 33 44 41Z"/></svg><svg class="ic xl" viewBox="0 0 48 48" aria-hidden="true"><path class="ac" d="M5 7H43V32H20L10 42V32H5Z"/><path d="M13 16H35M13 24H26"/></svg></div></div><img class="brand" src="img/logo.png" alt="Criativos do Futuro"><div class="num">15 / 40</div>
+</section>
+<section class="slide ">
+<div class="kick">Opção 1 · Timeline</div><h2 class="tt">Passo a passo em 4 semanas · Opção 1</h2><div class="rail big"><div class="nd "><span>1</span><b>Analisar e planejar</b></div><div class="nd "><span>2</span><b>Ensinar e organizar</b></div><div class="nd "><span>3</span><b>Programar e executar</b></div><div class="nd "><span>4</span><b>Refinar e consolidar</b></div></div><img class="brand" src="img/logo.png" alt="Criativos do Futuro"><div class="num">16 / 40</div>
+</section>
+<section class="slide ">
+<div class="kick">Opção 1 · Timeline</div><div class="rhythm"><div class="rb"><svg class="ic xl" viewBox="0 0 48 48" aria-hidden="true"><rect class="ac" x="4" y="10" width="28" height="28"/><path d="M32 20L44 12V36L32 28Z"/></svg><p>1 videochamada de 2 h por semana</p></div><div class="rb dk"><svg class="ic xl" viewBox="0 0 48 48" aria-hidden="true"><path class="ac" d="M5 7H43V32H20L10 42V32H5Z"/><path d="M13 16H35M13 24H26"/></svg><p>grupo de WhatsApp durante o mês</p></div></div><img class="brand" src="img/logo.png" alt="Criativos do Futuro"><div class="num">17 / 40</div>
+</section>
+<section class="slide ">
+<div class="kick">Opção 1 · Timeline</div><div class="rail"><div class="nd cur"><span>1</span><b>Semana 1</b></div><div class="nd "><span>2</span><b>Semana 2</b></div><div class="nd "><span>3</span><b>Semana 3</b></div><div class="nd "><span>4</span><b>Semana 4</b></div></div><div class="wk"><div class="wl"><div class="lab">Semana 1</div><h2>Analisar e planejar</h2><p class="p">mapeamos as demandas e como usar o tempo com Trombino</p></div><div class="icbox"><svg class="ic xl" viewBox="0 0 48 48" aria-hidden="true"><circle class="ac" cx="20" cy="20" r="13"/><path d="M30 30L43 43"/></svg></div></div><div class="rec"><span>→ recebem</span> plano de trabalho</div><img class="brand" src="img/logo.png" alt="Criativos do Futuro"><div class="num">18 / 40</div>
+</section>
+<section class="slide ">
+<div class="kick">Opção 1 · Timeline</div><div class="rail"><div class="nd done"><span>1</span><b>Semana 1</b></div><div class="nd cur"><span>2</span><b>Semana 2</b></div><div class="nd "><span>3</span><b>Semana 3</b></div><div class="nd "><span>4</span><b>Semana 4</b></div></div><div class="wk"><div class="wl"><div class="lab">Semana 2</div><h2>Ensinar e organizar</h2><p class="p">ensino a partir do mapeamento; organização do trabalho e do fluxo de acervo</p></div><div class="icbox"><svg class="ic xl" viewBox="0 0 48 48" aria-hidden="true"><rect class="ac" x="6" y="6" width="36" height="24"/><path d="M24 30V42M14 42H34M13 14H35M13 22H27"/></svg></div></div><div class="rec"><span>→ recebem</span> método e fluxos organizados</div><img class="brand" src="img/logo.png" alt="Criativos do Futuro"><div class="num">19 / 40</div>
+</section>
+<section class="slide ">
+<div class="kick">Opção 1 · Timeline</div><div class="rail"><div class="nd done"><span>1</span><b>Semana 1</b></div><div class="nd done"><span>2</span><b>Semana 2</b></div><div class="nd cur"><span>3</span><b>Semana 3</b></div><div class="nd "><span>4</span><b>Semana 4</b></div></div><div class="wk"><div class="wl"><div class="lab">Semana 3</div><h2>Programar e executar</h2><p class="p">agentes e fluxos programados, parte do processo automatizada, execução em conjunto</p></div><div class="icbox"><svg class="ic xl" viewBox="0 0 48 48" aria-hidden="true"><path d="M16 12L5 24L16 36M32 12L43 24L32 36M27 8L21 40"/><circle class="ac" cx="24" cy="24" r="3"/></svg></div></div><div class="rec"><span>→ recebem</span> o que foi imaginado funcionando</div><img class="brand" src="img/logo.png" alt="Criativos do Futuro"><div class="num">20 / 40</div>
+</section>
+<section class="slide ">
+<div class="kick">Opção 1 · Timeline</div><div class="rail"><div class="nd done"><span>1</span><b>Semana 1</b></div><div class="nd done"><span>2</span><b>Semana 2</b></div><div class="nd done"><span>3</span><b>Semana 3</b></div><div class="nd cur"><span>4</span><b>Semana 4</b></div></div><div class="wk"><div class="wl"><div class="lab">Semana 4</div><h2>Refinar e consolidar</h2><p class="p">ajustes no que a equipe executou</p></div><div class="icbox"><svg class="ic xl" viewBox="0 0 48 48" aria-hidden="true"><path d="M5 13H43M5 24H43M5 35H43"/><circle class="ac" cx="15" cy="13" r="4"/><circle class="ac" cx="31" cy="24" r="4"/><circle class="ac" cx="21" cy="35" r="4"/></svg></div></div><div class="rec"><span>→ recebem</span> trabalho final consolidado</div><img class="brand" src="img/logo.png" alt="Criativos do Futuro"><div class="num">21 / 40</div>
+</section>
+<section class="slide ">
+<div class="kick">Opção 2 · Timeline</div><h2 class="tt long">Opção 2: mesmas 4 semanas, mais o clone</h2><div class="rail big"><div class="nd "><span>1</span><b>Analisar e planejar</b></div><div class="nd "><span>2</span><b>Ensinar e organizar</b><em>+ clone</em></div><div class="nd "><span>3</span><b>Programar e executar</b><em>+ clone</em></div><div class="nd "><span>4</span><b>Refinar e consolidar</b></div></div><img class="brand" src="img/logo.png" alt="Criativos do Futuro"><div class="num">22 / 40</div>
+</section>
+<section class="slide dark">
+<div class="kick">Opção 2 · Timeline</div><div class="b12"><p class="p big2">12 h de encontros no mês, incluindo 2 sessões de 2 h para implementar o clone, nas semanas 2 e 3.</p><div class="hbar" style="width:1680px"><div class="hb-main">12 h</div><div class="hb-cl" style="width:560px">clone · 2 × 2 h</div></div></div><div class="num">23 / 40</div>
+</section>
+<section class="slide ">
+<div class="kick">Opção 2 · O clone</div><div class="consent"><div class="c1"><svg class="ic l" viewBox="0 0 48 48" aria-hidden="true"><rect class="ac" x="6" y="6" width="36" height="36"/><path d="M14 25L21 32L34 16"/></svg><h2 class="mid">O cliente decide quem e como.</h2></div><div class="band2"><svg class="ic l" viewBox="0 0 48 48" aria-hidden="true"><path class="ac" d="M10 4H30L38 12V44H10Z"/><path d="M30 4V12H38"/><path d="M16 28L22 34L32 22"/></svg><span>Antes da 1ª sessão: consentimento por escrito de quem será clonado.</span></div></div><img class="brand" src="img/logo.png" alt="Criativos do Futuro"><div class="num">24 / 40</div>
+</section>
+<section class="slide dark onimg">
+<div class="kick">As opções</div><div class="sec"><div class="pic" style="background-image:url(img/ig/nebulosa.jpg);background-position:60% 40%"></div><div class="txt"><h2>Duas opções, um mês, mesmo método</h2></div></div><div class="num">25 / 40</div>
+</section>
+<section class="slide ">
+<div class="kick">Opções</div><div class="opt1"><div class="ot"><div class="lab">Opção 1</div><h2>2 h/semana por videochamada = 8 h de encontros</h2><p class="p"><svg class="ic s" viewBox="0 0 48 48" aria-hidden="true"><path class="ac" d="M5 7H43V32H20L10 42V32H5Z"/><path d="M13 16H35M13 24H26"/></svg> grupo de WhatsApp (até cerca de 30 min por dia útil)</p></div><div class="ov"><div class="valor">R$ 8.000</div></div></div><img class="brand" src="img/logo.png" alt="Criativos do Futuro"><div class="num">26 / 40</div>
+</section>
+<section class="slide dark">
+<div class="kick">Opções</div><div class="opt1"><div class="ot"><div class="lab">Opção 2</div><h2>12 h de encontros no mês, incluindo 2 sessões de 2 h do clone</h2><p class="p"><svg class="ic s" viewBox="0 0 48 48" aria-hidden="true"><path class="ac" d="M5 7H43V32H20L10 42V32H5Z"/><path d="M13 16H35M13 24H26"/></svg> WhatsApp igual</p></div><div class="ov"><div class="valor">R$ 12.000</div></div></div><div class="num">27 / 40</div>
+</section>
+<section class="slide ">
+<div class="kick">Opções · Lado a lado</div><div class="cmp"><div class="cc"><div class="lab">Opção 1</div><div class="hh">8 h</div><div class="hbar" style="width:464px"><div class="hb-main"></div></div><div class="valor">R$ 8.000</div></div><div class="cc o2"><div class="lab">Opção 2</div><div class="hh">12 h</div><div class="hbar" style="width:696px"><div class="hb-main"></div><div class="hb-cl" style="width:232px">clone · 2 × 2 h</div></div><div class="valor">R$ 12.000</div></div></div><img class="brand" src="img/logo.png" alt="Criativos do Futuro"><div class="num">28 / 40</div>
+</section>
+<section class="slide ">
+<div class="kick">Opções · Pagamento</div><div class="pay"><div class="lab">Pagamento</div><div class="half"><div class="h1"><b>50%</b><span>na assinatura</span></div><div class="h2"><b>50%</b><span>após o último encontro</span></div></div></div><img class="brand" src="img/logo.png" alt="Criativos do Futuro"><div class="num">29 / 40</div>
+</section>
+<section class="slide ">
+<div class="kick">Como funciona na prática</div><div class="prog"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></div><div class="cond"><div class="n">1</div><p>Tudo o que for criado (skills, agentes, ferramentas) é de propriedade do cliente</p><div class="icbox"><svg class="ic xl" viewBox="0 0 48 48" aria-hidden="true"><circle class="ac" cx="15" cy="24" r="9"/><path d="M24 24H44M36 24V32M43 24V30"/></svg></div></div><img class="brand" src="img/logo.png" alt="Criativos do Futuro"><div class="num">30 / 40</div>
+</section>
+<section class="slide ">
+<div class="kick">Como funciona na prática</div><div class="prog"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></div><div class="cond"><div class="n">2</div><p>O cliente decide quem participa das reuniões</p><div class="icbox"><svg class="ic xl" viewBox="0 0 48 48" aria-hidden="true"><rect class="ac" x="6" y="6" width="36" height="36"/><path d="M14 25L21 32L34 16"/></svg></div></div><img class="brand" src="img/logo.png" alt="Criativos do Futuro"><div class="num">31 / 40</div>
+</section>
+<section class="slide ">
+<div class="kick">Como funciona na prática</div><div class="prog"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></div><div class="cond"><div class="n">3</div><p>Dúvidas por grupo de WhatsApp, com quem o cliente adicionar</p><div class="icbox"><svg class="ic xl" viewBox="0 0 48 48" aria-hidden="true"><path class="ac" d="M5 7H43V32H20L10 42V32H5Z"/><path d="M13 16H35M13 24H26"/></svg></div></div><img class="brand" src="img/logo.png" alt="Criativos do Futuro"><div class="num">32 / 40</div>
+</section>
+<section class="slide ">
+<div class="kick">Como funciona na prática</div><div class="prog"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></div><div class="cond"><div class="n">4</div><p>Contrata o Templo de Salomão; a Criativos do Futuro emite a nota</p><div class="icbox"><svg class="ic xl" viewBox="0 0 48 48" aria-hidden="true"><path class="ac" d="M10 4H38V44L33 40L28 44L24 40L20 44L15 40L10 44Z"/><path d="M17 15H31M17 23H31M17 31H25"/></svg></div></div><img class="brand" src="img/logo.png" alt="Criativos do Futuro"><div class="num">33 / 40</div>
+</section>
+<section class="slide ">
+<div class="kick">Como funciona na prática</div><div class="prog"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div><div class="cond"><div class="n">5</div><p>Ferramentas e créditos: por conta do cliente</p><div class="icbox"><svg class="ic xl" viewBox="0 0 48 48" aria-hidden="true"><rect class="ac" x="4" y="12" width="40" height="28"/><path d="M4 20H44"/><circle cx="35" cy="30" r="2.5"/></svg></div></div><img class="brand" src="img/logo.png" alt="Criativos do Futuro"><div class="num">34 / 40</div>
+</section>
+<section class="slide dark">
+<div class="kick">Adiante</div><div class="split"><div class="txt"><h2>E depois?</h2><p class="p lil">Se fizer sentido, depois de conhecer o ambiente, apresentamos uma proposta para derivar o conteúdo por canal e formato.</p><div class="chipn">Sem compromisso agora</div></div><div class="icbox"><svg class="ic xxl" viewBox="0 0 48 48" aria-hidden="true"><path d="M5 24H41M28 11L41 24L28 37"/></svg></div></div><div class="num">35 / 40</div>
+</section>
+<section class="slide ">
+<div class="kick">Próximo passo</div><h2 class="tt sm">Próximo passo</h2><div class="rail"><div class="nd cur"><span>1</span><b>Passo 1</b></div><div class="nd "><span>2</span><b>Passo 2</b></div><div class="nd "><span>3</span><b>Passo 3</b></div><div class="nd "><span>4</span><b>Passo 4</b></div></div><div class="wk"><div class="wl"><h2>Escolher a opção</h2></div><div class="icbox"><svg class="ic xl" viewBox="0 0 48 48" aria-hidden="true"><rect class="ac" x="6" y="6" width="36" height="36"/><path d="M14 25L21 32L34 16"/></svg></div></div><img class="brand" src="img/logo.png" alt="Criativos do Futuro"><div class="num">36 / 40</div>
+</section>
+<section class="slide ">
+<div class="kick">Próximo passo</div><h2 class="tt sm">Próximo passo</h2><div class="rail"><div class="nd done"><span>1</span><b>Passo 1</b></div><div class="nd cur"><span>2</span><b>Passo 2</b></div><div class="nd "><span>3</span><b>Passo 3</b></div><div class="nd "><span>4</span><b>Passo 4</b></div></div><div class="wk"><div class="wl"><h2>Enviar os dados do Templo de Salomão para o contrato</h2></div><div class="icbox"><svg class="ic xl" viewBox="0 0 48 48" aria-hidden="true"><path class="ac" d="M4 22L44 6L30 42L22 28Z"/><path d="M22 28L44 6"/></svg></div></div><img class="brand" src="img/logo.png" alt="Criativos do Futuro"><div class="num">37 / 40</div>
+</section>
+<section class="slide ">
+<div class="kick">Próximo passo</div><h2 class="tt sm">Próximo passo</h2><div class="rail"><div class="nd done"><span>1</span><b>Passo 1</b></div><div class="nd done"><span>2</span><b>Passo 2</b></div><div class="nd cur"><span>3</span><b>Passo 3</b></div><div class="nd "><span>4</span><b>Passo 4</b></div></div><div class="wk"><div class="wl"><h2>Assinar e pagar 50%</h2></div><div class="icbox"><svg class="ic xl" viewBox="0 0 48 48" aria-hidden="true"><path class="ac" d="M8 40L10 30L32 8L40 16L18 38Z"/><path d="M28 12L36 20"/></svg></div></div><img class="brand" src="img/logo.png" alt="Criativos do Futuro"><div class="num">38 / 40</div>
+</section>
+<section class="slide ">
+<div class="kick">Próximo passo</div><h2 class="tt sm">Próximo passo</h2><div class="rail"><div class="nd done"><span>1</span><b>Passo 1</b></div><div class="nd done"><span>2</span><b>Passo 2</b></div><div class="nd done"><span>3</span><b>Passo 3</b></div><div class="nd cur"><span>4</span><b>Passo 4</b></div></div><div class="wk"><div class="wl"><h2>Marcar o 1º encontro</h2></div><div class="icbox"><svg class="ic xl" viewBox="0 0 48 48" aria-hidden="true"><rect class="ac" x="6" y="10" width="36" height="32"/><path d="M6 20H42M16 4V14M32 4V14"/><rect x="14" y="26" width="6" height="6"/></svg></div></div><img class="brand" src="img/logo.png" alt="Criativos do Futuro"><div class="num">39 / 40</div>
+</section>
+<section class="slide dark onimg">
+<div class="close" style="background-image:url(img/ig/nebulosa.jpg)"><img src="img/icone-criativosdofuturo.png" alt="Símbolo Criativos do Futuro"></div><div class="num">40 / 40</div>
+</section>
 </div>
 <div class="nav"><button onclick="go(-1)">‹</button><button onclick="go(1)">›</button></div>
-<script>
-const S=[...document.querySelectorAll('.slide')];let i=0;
+<script>const S=[...document.querySelectorAll('.slide')];let i=0;
 function fit(){const k=Math.min(innerWidth/1920,innerHeight/1080);const st=document.getElementById('stage');st.style.transform='scale('+k+')';st.style.left=(innerWidth-1920*k)/2+'px';st.style.top=(innerHeight-1080*k)/2+'px'}
-function show(n){i=Math.max(0,Math.min(S.length-1,n));S.forEach((s,j)=>s.classList.toggle('on',j===i));try{history.replaceState(null,'','#'+(i+1))}catch(e){}}
-function go(d){show(i+d)}
-addEventListener('keydown',e=>{if(['ArrowRight','PageDown',' ','Enter'].includes(e.key)){e.preventDefault();go(1)}else if(['ArrowLeft','PageUp','Backspace'].includes(e.key)){e.preventDefault();go(-1)}else if(e.key==='Home')show(0);else if(e.key==='End')show(S.length-1);else if(e.key==='p'||e.key==='P')document.body.classList.toggle('limpo')});
-addEventListener('resize',fit);fit();show((parseInt(location.hash.slice(1))||1)-1);
-</script>
+function show(n,all){i=Math.max(0,Math.min(S.length-1,n));S.forEach((s,j)=>s.classList.toggle('on',j===i));S[i].querySelectorAll('.frag').forEach(f=>f.classList.toggle('h',!all));try{history.replaceState(null,'','#'+(i+1))}catch(e){}}
+function go(d){const fr=[...S[i].querySelectorAll('.frag')];if(d>0){const h=fr.filter(f=>f.classList.contains('h'));if(h.length){h[0].classList.remove('h');return}show(i+1,false)}else{const v=fr.filter(f=>!f.classList.contains('h'));if(v.length){v.pop().classList.add('h');return}show(i-1,true)}}
+addEventListener('keydown',e=>{if(['ArrowRight','PageDown',' ','Enter'].includes(e.key)){e.preventDefault();go(1)}else if(['ArrowLeft','PageUp','Backspace'].includes(e.key)){e.preventDefault();go(-1)}else if(e.key==='Home')show(0,false);else if(e.key==='End')show(S.length-1,true);else if(e.key==='p'||e.key==='P')document.body.classList.toggle('limpo')});
+addEventListener('resize',fit);fit();show((parseInt(location.hash.slice(1))||1)-1,true);</script>
 </body>
 </html>
